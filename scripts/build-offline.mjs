@@ -22,7 +22,6 @@ const result = await build({
 const safeScript = (content) => content.replace(/<\/script/gi, "<\\/script");
 const inline = (text) => `<script>${safeScript(text)}</script>`;
 let html = await readFile(path.join(dist, "index.html"), "utf8");
-html = html.replace('href="tools.html"', 'href="dist/tools.html"');
 html = html.replace(
   /<link\s+rel="stylesheet"\s+href="styles.css"\s*\/?\s*>/,
   `<style>${await readFile(path.join(dist, "styles.css"), "utf8")}</style>`,

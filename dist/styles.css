@@ -323,10 +323,6 @@ button:disabled {
   font-size: 14px;
   height: 16px;
 }
-.tools-link {
-  text-decoration: none;
-  color: inherit;
-}
 #sound-state {
   font-size: 9px;
   padding-top: 3px;
