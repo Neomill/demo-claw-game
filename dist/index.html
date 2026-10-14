@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#fbf6ef" />
+    <meta
+      name="description"
+      content="A tiny claw arcade with a generous grip and very expressive little prizes. Move, drop, and give someone a little lift."
+    />
+    <title>DEMO GAME</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%23ef6d91'/%3E%3Cpath d='M32 12v16M23 28L14 43q-3 6 4 9M41 28l9 15q3 6-4 9M32 30v17' fill='none' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="vendor/pixi.min.js"></script>
+    <script defer src="vendor/gsap.min.js"></script>
+    <script type="module" src="src/main.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <main>
+        <section class="arcade" aria-label="Claw machine game">
+          <div class="machine-top">
+            <div class="machine-wordmark">
+              <span aria-hidden="true">✳</span> DEMO GAME
+            </div>
+            <div class="status-pill" id="status-pill">
+              <span></span><span id="status-short">READY TO PLAY</span>
+            </div>
+            <div class="score">
+              <span>FRIENDS RESCUED</span
+              ><strong><span id="score">00</span><i> / 04</i></strong>
+            </div>
+          </div>
+          <div class="game-window" id="game-window">
+            <div
+              id="game"
+              role="application"
+              aria-label="Claw machine. Left and right arrows to move. Space to drop. P to pause."
+              tabindex="0"
+            ></div>
+            <div class="loading" id="loading">
+              <div class="loading-claw">↟</div>
+              <strong>Waking up the little friends…</strong
+              ><span id="loading-detail">Setting the scene</span>
+            </div>
+            <div class="pause-cover" id="pause-cover" hidden>
+              <strong>Taking a breather.</strong
+              ><button id="resume" class="small-button">Resume play</button>
+            </div>
+            <div class="win-cover" id="win-cover" hidden>
+              <div class="win-card">
+                <span class="win-star">✳</span>
+                <p class="eyebrow">EVERYONE’S COMING HOME</p>
+                <h2>A very happy ending.</h2>
+                <p id="win-summary">Four little friends, rescued by you.</p>
+                <button id="replay" class="drop-button">
+                  ONE MORE ROUND <span>↗</span>
+                </button>
+              </div>
+            </div>
+            <div class="scene-caption" aria-hidden="true">
+              <span class="caption-dot"></span> GENTLE GRABS · HAPPY LANDINGS
+            </div>
+          </div>
+          <div class="control-deck">
+            <div class="direction-controls" aria-label="Move claw">
+              <button id="left" class="arrow-button" aria-label="Move left">
+                ←</button
+              ><button id="right" class="arrow-button" aria-label="Move right">
+                →</button
+              ><span>LINE IT UP</span>
+            </div>
+            <button id="drop" class="drop-button" disabled>
+              <span class="drop-label">DROP CLAW</span><kbd>SPACE</kbd>
+            </button>
+            <div class="utility-controls">
+              <a
+                class="utility-button tools-link"
+                href="tools.html"
+                aria-label="View tools used to build this demo"
+                >TOOLS <span>↗</span></a
+              >
+              <button
+                id="sound"
+                class="utility-button"
+                aria-label="Turn sound on"
+                aria-pressed="false"
+              >
+                SOUND <span id="sound-state">OFF</span></button
+              ><button
+                id="pause"
+                class="utility-button"
+                aria-label="Pause game"
+              >
+                PAUSE <span>Ⅱ</span></button
+              ><button
+                id="reset"
+                class="utility-button"
+                aria-label="Start a new round"
+              >
+                RESET <span>↻</span>
+              </button>
+            </div>
+          </div>
+          <div class="machine-lip"></div>
+        </section>
+        <p
+          id="game-message"
+          class="sr-only"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </main>
+    </div>
+  </body>
+</html>

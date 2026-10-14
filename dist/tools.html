@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tools used · DEMO GAME</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #fbf6ef;
+        color: #382b35;
+        font:
+          16px/1.65 Arial,
+          Helvetica,
+          sans-serif;
+      }
+      main {
+        max-width: 1000px;
+        margin: auto;
+        padding: 36px 24px 64px;
+      }
+      a {
+        color: #973351;
+        text-underline-offset: 4px;
+      }
+      a:focus-visible {
+        outline: 3px solid #973351;
+        outline-offset: 5px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 46px;
+      }
+      nav span,
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        color: #986379;
+      }
+      h1 {
+        font-size: clamp(36px, 7vw, 62px);
+        line-height: 1.08;
+        letter-spacing: -2px;
+        margin: 12px 0 20px;
+      }
+      h2 {
+        font-size: 24px;
+        letter-spacing: -0.5px;
+        margin: 0 0 16px;
+      }
+      p {
+        margin: 0 0 18px;
+      }
+      .lead {
+        max-width: 700px;
+        color: #756370;
+        font-size: 18px;
+      }
+      .tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 24px 0 38px;
+      }
+      .tags span {
+        background: #e5eee7;
+        border: 1px solid #b8cabc;
+        padding: 5px 13px;
+        border-radius: 30px;
+        font-size: 12px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .card {
+        background: #fffaf7;
+        border: 1px solid #dfccd5;
+        border-radius: 20px;
+        padding: 26px;
+      }
+      .card.primary {
+        background: #f7d2df;
+      }
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+      .version {
+        font: 12px monospace;
+        color: #986379;
+      }
+      section {
+        margin-top: 32px;
+      }
+      dl {
+        margin: 0;
+      }
+      dt {
+        font-weight: bold;
+        margin-top: 18px;
+      }
+      dt:first-child {
+        margin-top: 0;
+      }
+      dd {
+        margin: 3px 0 0;
+        color: #756370;
+        font-size: 14px;
+      }
+      .script {
+        border-left: 4px solid #e9678d;
+        background: #f3e9ed;
+        padding: 24px 28px;
+        border-radius: 0 16px 16px 0;
+        margin: 0;
+      }
+      .note {
+        font-size: 13px;
+        color: #756370;
+        margin-top: 24px;
+      }
+      footer {
+        margin-top: 36px;
+        padding-top: 20px;
+        border-top: 1px solid #dfccd5;
+        font-size: 13px;
+      }
+      @media (max-width: 640px) {
+        main {
+          padding: 24px 18px 40px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          margin-bottom: 32px;
+        }
+        .card {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <a href="./">← Back to the game</a><span>DEMO GAME / BUILD NOTES</span>
+      </nav>
+      <p class="eyebrow">BEHIND THE DEMO</p>
+      <h1>A small game.<br />A look at how it works.</h1>
+      <p class="lead">
+        PixiJS draws the scene. GSAP brings the parts to life. Custom JavaScript
+        gives every little friend weight, bounce, and a generous chance to come
+        home.
+      </p>
+      <div class="tags">
+        <span>Runs in your browser</span><span>Layered PNG animation</span
+        ><span>No backend</span><span>AI-assisted development</span>
+      </div>
+      <div class="grid">
+        <article class="card primary">
+          <p class="version">PIXIJS 8.22.0</p>
+          <h2>The rendering</h2>
+          <p>
+            WebGL renders the ball, feet and claw as separate sprites.
+            Containers provide pivots and hierarchy. Scene layers put the center
+            finger behind the ball and the side fingers in front.
+          </p>
+        </article>
+        <article class="card primary">
+          <p class="version">GSAP 3.15.0</p>
+          <h2>The animation</h2>
+          <p>
+            Timelines coordinate the claw's travel and squeeze. Tweened
+            transforms add squash, recovery and face crossfades. Each foot moves
+            independently around its ankle.
+          </p>
+        </article>
+        <article class="card">
+          <h2>The game systems</h2>
+          <dl>
+            <dt>Custom JavaScript physics</dt>
+            <dd>
+              A fixed 120 Hz simulation handles gravity, bounce, circle
+              collisions and a damped spring grip. Catching is intentionally
+              forgiving.
+            </dd>
+            <dt>JavaScript ES modules</dt>
+            <dd>
+              Game state, input, physics, visual rigs and interface are separate
+              modules.
+            </dd>
+            <dt>HTML, CSS & Web Audio</dt>
+            <dd>
+              Responsive controls and overlays, with optional synthesized sound
+              effects.
+            </dd>
+          </dl>
+        </article>
+        <article class="card">
+          <h2>The development tools</h2>
+          <dl>
+            <dt>OpenAI Codex</dt>
+            <dd>
+              AI-assisted implementation, iteration, debugging and verification
+              under the user's creative direction.
+            </dd>
+            <dt>Node.js, npm & Git</dt>
+            <dd>
+              Local preview, scripts, dependency management, tests and source
+              history.
+            </dd>
+            <dt>esbuild 0.28.2 & Prettier 3.9.10</dt>
+            <dd>Optional offline bundling and consistent source formatting.</dd>
+            <dt>Playwright & Google Chrome</dt>
+            <dd>Browser play checks and screenshots for visual review.</dd>
+          </dl>
+        </article>
+      </div>
+      <section class="card">
+        <h2>The artwork and the rig</h2>
+        <p>
+          The reference-based PNG exports and six expression layers were
+          prepared earlier in the project conversation. The rig reuses those
+          assets and moves individual parts with rotation, scaling and skew.
+        </p>
+        <p>
+          This produces a cutout-skeleton feel using PixiJS and GSAP. There is
+          no Spine runtime, sprite-sheet animation, third-party physics engine,
+          or live AI request during play.
+        </p>
+      </section>
+      <section>
+        <h2>A short demo introduction</h2>
+        <blockquote class="script">
+          “This is a client-side claw machine demo made with PixiJS and GSAP,
+          with AI-assisted development using OpenAI Codex. The characters are
+          assembled from separate PNG layers, so the feet and expressions can
+          move independently. A custom physics solver gives the balls weight and
+          bounce, with a forgiving grip. Everything is organized into small
+          modules and packaged for GitHub Pages.”
+        </blockquote>
+      </section>
+      <section>
+        <h2>Delivery and verification</h2>
+        <p>
+          GitHub Actions publishes the committed static game to GitHub Pages
+          once the owner uploads the package and enables Pages. No server
+          application or API keys are needed.
+        </p>
+        <p class="note">
+          Development checks covered full-round play, controls, pause/reset,
+          offline play and the updated character/claw composition. The
+          repository includes six physics tests and syntax checks. The GitHub
+          deployment must be verified after upload.
+        </p>
+      </section>
+      <footer>
+        Library notices are included with the source.
+        <a href="vendor/PIXI-LICENSE.txt">PixiJS notice</a> ·
+        <a href="vendor/GSAP-LICENSE.txt">GSAP notice</a>
+      </footer>
+    </main>
+  </body>
+</html>
